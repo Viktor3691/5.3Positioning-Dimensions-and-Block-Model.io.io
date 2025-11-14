@@ -1,0 +1,52 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.body {
+  margin: 0 auto;
+}
+.grid {
+  inline-size: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  /* Делаем грид-контейнером */
+  display: grid;
+  /* Определяем схему сетки:
+Первая строка — хедер на всю ширину (2 колонки)
+Вторая строка — слева меню (sidebar), справа контент */
+  grid-template-areas: "header header" "sidebar content";
+  /* Ширина колонок:
+первая — фиксированная 300px (для меню),
+вторая — занимает всё оставшееся место */
+  grid-template-columns: 300px 1fr;
+  /* Отступы между ячейками сетки */
+  gap: 16px;
+  border-inline-end: 50px solid #d9e6f3;
+  border-inline-start: 50px solid #d9e6f3;
+}
+.content {
+  /* Привязываем элемент к зоне content */
+  grid-area: content;
+}
+.header {
+  background: left / cover url("IMG/heder_fon.png");
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  /* background: white; */
+  z-index: 1;
+}
+.sidebar {
+  grid-area: sidebar;
+  position: sticky;
+  /* чуть ниже хедера */
+  top: 40px;
+  background: white;
+  z-index: 0;
+}
+.footer {
+  grid-column: 1 / 4;
+  grid-row: 3/ 4;
+  z-index: 0;
+}
