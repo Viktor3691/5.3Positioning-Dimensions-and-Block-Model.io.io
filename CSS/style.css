@@ -4,49 +4,189 @@
   box-sizing: border-box;
 }
 .body {
-  margin: 0 auto;
-}
-.grid {
   inline-size: 1200px;
   margin: 0 auto;
-  padding: 10px;
+}
+.logo {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  font: bold calc(1em + 1 * (100vw - 120px) / 200) "Dancing Script", fantasy;
+  color: #80d3f6;
+  text-shadow: #000 2px 2px 0.2rem;
+}
+.grid {
   /* Делаем грид-контейнером */
   display: grid;
   /* Определяем схему сетки:
-Первая строка — хедер на всю ширину (2 колонки)
-Вторая строка — слева меню (sidebar), справа контент */
-  grid-template-areas: "header header" "sidebar content";
+    Первая строка — хедер на всю ширину (2 колонки)
+    Вторая строка — слева меню (sidebar), справа контент */
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
   /* Ширина колонок:
-первая — фиксированная 300px (для меню),
-вторая — занимает всё оставшееся место */
+    первая — фиксированная 200px (для меню),
+    вторая — занимает всё оставшееся место */
   grid-template-columns: 300px 1fr;
   /* Отступы между ячейками сетки */
-  gap: 16px;
-  border-inline-end: 50px solid #d9e6f3;
+  gap: 5px;
   border-inline-start: 50px solid #d9e6f3;
+  border-inline-end: 50px solid #d9e6f3;
 }
 .content {
   /* Привязываем элемент к зоне content */
   grid-area: content;
+  padding: 10px;
 }
 .header {
-  background: left / cover url("IMG/heder_fon.png");
+  margin: 10px;
+  padding: 20px;
   grid-area: header;
   position: sticky;
   top: 0;
-  /* background: white; */
-  z-index: 1;
+  z-index: 10;
+  background: left / cover url("IMG/heder_fon.png");
+}
+.nav {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 0.25fr 1fr;
 }
 .sidebar {
+  margin: 10px;
+  padding: 0 20px 0 0;
   grid-area: sidebar;
   position: sticky;
   /* чуть ниже хедера */
   top: 40px;
-  background: white;
-  z-index: 0;
+  background: rgb(230, 241, 241);
 }
 .footer {
-  grid-column: 1 / 4;
-  grid-row: 3/ 4;
-  z-index: 0;
+  grid-area: footer;
+  position: sticky;
+  /* чуть ниже хедера */
+  top: 40px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+.ramka {
+  font-size: 16px;
+  background-color: rgb(235, 241, 245);
+  color: #000;
+  font-family: "Courier New", Courier, monospace;
+  inline-size: 100%;
+  margin: 20px 0 20px 0;
+}
+
+.pictures {
+  margin: 20px auto;
+  padding: 5px;
+  border: 5px solid rgb(188, 204, 248);
+  width: 100%;
+}
+.pictures1 {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 5px solid rgb(188, 204, 248);
+  width: 70%;
+}
+.pictures2 {
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 5px solid rgb(188, 204, 248);
+  width: 50%;
+}
+span {
+  font-size: 18px;
+  color: #d13708;
+  background: #e3f1fa;
+}
+.span {
+  font-size: 18;
+  color: #000;
+  background: yellow;
+}
+.anchor {
+  display: inline-block;
+  margin-right: 0.25rem;
+  vertical-align: text-bottom;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#a0b0bb),
+    to(#3e5d75)
+  );
+  background: linear-gradient(to right, #a0b0bb, #3e5d75);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  text-decoration: none;
+}
+kbd {
+  background: var(--prcd-kbd-bg, #dcdcdc);
+  border-width: 3px 4px 5px;
+  border-style: solid;
+  border-color: var(--prcd-kbd-brdc, #cdcdcd #c9c9c9 #c0c0c0);
+  padding: 0 10px;
+  font-size: 14px;
+  color: var(--prcd-kbd-color, #333);
+  border-radius: 3px;
+  line-height: 36px;
+}
+
+#example_1 {
+  width: 300px;
+  max-width: 200px;
+  background-color: rgb(158, 214, 252);
+}
+#example_2 {
+  width: 300px;
+  background-color: rgb(158, 214, 252);
+}
+#example_3 {
+  height: 100px;
+  max-height: 50px;
+  background-color: rgb(158, 214, 252);
+}
+#example_4 {
+  height: 100px;
+  background-color: rgb(158, 214, 252);
+}
+#example_5 {
+  width: 300px;
+  min-width: 400px;
+  background-color: rgb(158, 214, 252);
+}
+
+#example_6 {
+  width: 300px;
+  background-color: rgb(158, 214, 252);
+}
+#example_7 {
+  min-width: 300px;
+  max-width: 500px;
+  background-color: rgb(158, 214, 252);
+}
+
+#example_8 {
+  min-height: 100px;
+  max-height: 200px;
+  background-color: rgb(158, 214, 252);
 }
