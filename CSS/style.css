@@ -20,34 +20,32 @@
 .grid {
   /* Делаем грид-контейнером */
   display: grid;
-  /* Определяем схему сетки:
-    Первая строка — хедер на всю ширину (2 колонки)
-    Вторая строка — слева меню (sidebar), справа контент */
-  grid-template-areas:
-    "header header"
-    "sidebar content"
-    "footer footer";
-  /* Ширина колонок:
-    первая — фиксированная 200px (для меню),
-    вторая — занимает всё оставшееся место */
-  grid-template-columns: 300px 1fr;
-  /* Отступы между ячейками сетки */
-  gap: 5px;
-  border-inline-start: 50px solid #d9e6f3;
+
+  grid-template-columns: 1fr 3fr;
+  margin: 0 avto;
   border-inline-end: 50px solid #d9e6f3;
+  border-inline-start: 50px solid #d9e6f3;
 }
+
+.grid > div {
+  margin: 7px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+/* Отступы между ячейками сетки */
+
 .content {
   /* Привязываем элемент к зоне content */
-  grid-area: content;
+  grid-column: 2/ 3;
+  grid-row: 2 / 3;
   padding: 10px;
 }
 .header {
   margin: 10px;
   padding: 20px;
-  grid-area: header;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
   background: left / cover url("IMG/heder_fon.png");
 }
 .nav {
@@ -57,27 +55,26 @@
 }
 .sidebar {
   margin: 10px;
-  padding: 0 20px 0 0;
-  grid-area: sidebar;
-  position: sticky;
+  padding: 0 10px 0 0;
+  grid-column: 1/ 2;
+  grid-row: 2 / 3;
   /* чуть ниже хедера */
   top: 40px;
   background: rgb(230, 241, 241);
 }
 .footer {
-  grid-area: footer;
-  position: sticky;
-  /* чуть ниже хедера */
+  grid-column: 1 / 4;
+  grid-row: 3/ 4;
   top: 40px;
 }
 h1,
 h2,
 h3,
-h4,
 h5,
 h6 {
   text-align: center;
 }
+
 .ramka {
   font-size: 16px;
   background-color: rgb(235, 241, 245);
@@ -150,6 +147,48 @@ kbd {
   border-radius: 3px;
   line-height: 36px;
 }
+caption {
+  color: #ababab;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 10px 0;
+  text-align: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 30px;
+}
+
+table td p:last-child {
+  margin-bottom: 0;
+}
+
+.t1 th {
+  color: #5f70b2;
+  text-align: center;
+  border-bottom: 1px dashed #e6e6e6;
+  padding: 10px 15px;
+}
+
+.t1 td {
+  padding: 8px 15px;
+  font-size: 90%;
+  vertical-align: top;
+}
+
+.t1 td:first-child {
+  width: 20%;
+  vertical-align: top;
+}
+
+#example_11 {
+  width: 300px;
+  max-width: 200px;
+  background-color: rgb(158, 214, 252);
+}
 
 #example_1 {
   width: 300px;
@@ -189,4 +228,41 @@ kbd {
   min-height: 100px;
   max-height: 200px;
   background-color: rgb(158, 214, 252);
+}
+
+#example_9 {
+  box-sizing: content-box;
+  width: 160px;
+  height: 80px;
+  padding: 20px;
+  border: 8px solid red;
+  background: yellow;
+  /* Total width: 160px + (2 * 20px) + (2 * 8px) = 216px
+Total height: 80px + (2 * 20px) + (2 * 8px) = 136px
+Content box width: 160px
+Content box height: 80px */
+}
+
+#example_10 {
+  box-sizing: border-box;
+  width: 160px;
+  height: 80px;
+  padding: 20px;
+  border: 8px solid red;
+  background: yellow;
+  /* Total width: 160px
+Total height: 80px
+Content box width: 160px - (2 * 20px) - (2 * 8px) = 104px
+Content box height: 80px - (2 * 20px) - (2 * 8px) = 24px */
+}
+.box-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+.box {
+  border: 5px solid black;
+  padding: 5px;
+  width: 33%;
+  height: 250px;
+  background-color: rgb(187, 70, 70);
 }

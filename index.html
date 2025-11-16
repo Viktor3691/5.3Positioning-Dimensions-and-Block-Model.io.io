@@ -46,7 +46,7 @@
                     <h4><a href="#title1">Размеры элементов на CSS</a></h4>
                     <ol>
                         <li>
-                            <h4><a href="#title11">Настройка ширины и высоты</a></h4>
+                            <h4><a href="#title11">Настройка ширины и высоты - width и height</a></h4>
                         </li>
                         <li>
                             <h4><a href="#title12">Настройка максимальной ширины и высоты</a></h4>
@@ -54,13 +54,16 @@
                         <li>
                             <h4><a href="#title13">Настройка минимальной ширины и высоты</a></h4>
                         </li>
+                        <li>
+                            <h4><a href="#title14">Настройка диапазона ширины и высоты</a></h4>
+                        </li>
                     </ol>
                 </li>
                 <li>
-                    <h4><a href="#title2">#</a></h4>
+                    <h4><a href="#title2">Что такое box-sizing: border-box на CSS</a></h4>
                 </li>
                 <li>
-                    <h4><a href="#title3">#</a></h4>
+                    <h4><a href="#title3"> Позиционирование на CSS</a></h4>
                 </li>
 
             </ol>
@@ -79,7 +82,7 @@
                 рассмотрим, как
                 использовать эти свойства для указания размеров элементам.</p>
 
-            <h3 id="title11">Настройка ширины и высоты</h3>
+            <h3 id="title11">Настройка ширины и высоты - width и height</h3>
 
             <p>Свойства <span>width и height </span>определяют ширину и высоту области содержимого элемента. <br>
                 <br>
@@ -96,9 +99,17 @@
                 div {<br>
                 &emsp;&emsp;width: 300px;<br>
                 &emsp;&emsp;height: 200px;<br>
+                background-color: rgb(158, 214, 252); <br>
                 }
                 <br>
             </div>
+
+            <div id="example_11">
+                width: 300px;<br>
+                height: 200px;<br>
+                background-color: rgb(158, 214, 252);
+            </div>
+
 
             <p>Приведенные выше правила присваивают элементу &lt;div&gt; фиксированную ширину 300 пикселей и высоту 200
                 пикселей. <br>
@@ -117,7 +128,8 @@
 
             <p>Нельзя указывать отрицательные значения свойств width и height.</p>
 
-            <h3>Настройка максимальной ширины и высоты</h3>
+            <h3 id="title12">Настройка максимальной ширины max-width и высоты max-height
+            </h3>
 
             <p>Вы можете использовать свойство <br>
                 <br><span>max-width</span>, чтобы указать максимальную ширину
@@ -141,9 +153,9 @@
             </div>
 
 
-            <div id="example_1">Например, если width установлена в 300px, а max-width установлена в 200px, фактическая
-                ширина элемента
-                будет 200px.</div>
+            <div id="example_1">width: 300px;<br>
+                max-width: 200px;<br>
+                background-color: rgb(158, 214, 252);</div>
             <br>
             <div class="ramka"> CSS
                 <br>
@@ -155,10 +167,16 @@
                 <br>
             </div>
 
-            <div id="example_2">фактическая ширина элемента 300px</div>
+            <div id="example_2">
+                width: 300px;<br>
+                background-color: rgb(158, 214, 252);
+            </div>
 
-            <p>Аналогично, элемент, к которому применено max-height, никогда не будет выше указанного значения height,
-                даже если для свойства height установлено большее значение. </p>
+            <p>Аналогично, <strong>элемент, к которому применено max-height, никогда не будет выше указанного значения
+                    height,</strong>
+                даже если для свойства height установлено большее значение. <br>
+                Например, если height установлено на 100px,
+                а max-height установлено на 50px, фактическая высота элемента будет 50px</p>
             <div class="ramka"> HTML
                 <br>
                 <br>
@@ -173,9 +191,9 @@
 
 
             <div id="example_3">
-                Например, если height установлено на 100px, а max-height установлено на 50px, фактическая высота
-                элемента будет
-                100px.</div>
+                height: 100px;<br>
+                max-height: 50px;<br>
+                background-color: rgb(158, 214, 252);</div>
             <br>
 
             <div class="ramka"> HTML
@@ -188,9 +206,11 @@
                 <br>
             </div>
             <div id="example_4">
-                height установлено на 100px</div>
+                height: 100px;<br>
+                background-color: rgb(158, 214, 252);
+            </div>
 
-            <h3>Настройка минимальной ширины и высоты</h3>
+            <h3 id="title13">Настройка минимальной ширины min-width и высоты min-height</h3>
 
             <p>Вы можете использовать свойство <br>
                 <span>min-width и min-height,</span><br>
@@ -201,8 +221,7 @@
                 меньшее значение. Например, если<br>
                 <strong> width установлена на 300px</strong>, <br>
                 <strong> min-width установлена на 400px</strong>а, <br>
-                фактическая ширина элемента
-                составит 400px. Давайте
+                фактическая ширина элемента составит 400px. Давайте
                 посмотрим, как это на самом деле работает:
             </p>
 
@@ -232,7 +251,7 @@
 
             <div id="example_6">width: 300px;<br></div>
 
-            <h3>Настройка диапазона ширины и высоты</h3>
+            <h3 id="title14">Настройка диапазона ширины и высоты</h3>
 
             <p>Свойства <span>min-width и min-height</span> часто используются в сочетании со свойствами <span>max-width
                     и max-height </span>для получения
@@ -276,8 +295,171 @@
                 max-height: 200px;<br>
                 background-color: rgb(158, 214, 252);<br></div>
 
+            <h2 id="title2"> 2. Что такое box-sizing: border-box на CSS</h2>
+            <i> <a href="https://html5book.ru/block-inline-elements/" target="_blank"
+                    rel="noopener noreferrer">"Источник"</a> </i>
+
+            <p>Свойство <span>box-sizing</span> переключает блочную модель с фиксированных размеров длины и ширины на
+                content-box и border-box. Это
+                влияет на интерпретацию всех свойств, определяющих размеры, включая flex-basis. <br>
+                <br>
+                Свойство не наследуется.
+            </p>
+
+            <table border="1" width="100%">
+                <tr>
+                    <th colspan="2">box-sizing</th>
+                </tr>
+                <tr>
+                    <td>Значения: </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span>content-box</span></td>
+                    <td>Это поведение ширины и высоты, как указано в CSS2.1. Заданные ширина и высота (и соответствующие
+                        min/max-свойства) применяются к ширине и высоте области содержимого элемента. Поля
+                        <span>padding</span> и
+                        рамка <span>border</span> элемента располагаются за пределами указанной ширины и высоты.
+                        Значение
+                        по
+                        умолчанию.
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>border-box</span></td>
+                    <td>Любые <span>padding</span> или <span>border</span>, заданные для элемента, размечаются и
+                        отрисовываются внутри
+                        указанных значений ширины и высоты. Ширина и высота содержимого вычисляются путем вычитания
+                        ширины границ и
+                        полей соответствующих сторон из указанных свойств ширины и высоты. Значение <span>auto</span>
+                        свойств
+                        <span>width</span> и <span>height</span> не зависит от свойства <span>box-sizing</span> и всегда
+                        устанавливает
+                        размер блока с содержимым. Сумма <span>padding</span> и <span>border</span> не должна превышать
+                        заданные
+                        значения <span>width</span> и <span>height</span>, в противном случае размер области содержимого
+                        будет равен
+                        нулю.
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>initial</span></td>
+                    <td>Устанавливает значение свойства в значение по умолчанию.</td>
+                </tr>
+                <tr>
+                    <td><span>inherit</span></td>
+                    <td>Наследует значение свойства от родительского элемента.</td>
+                </tr>
+            </table>
+
+            <h3>Синтаксис</h3>
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                box-sizing: content-box;<br>
+                box-sizing: border-box;<br>
+                box-sizing: inherit;<br>
+                box-sizing: initial;
+                <br>
+            </div>
+
+            <h4>Примеры</h4>
+
+            <h4>Размеры блоков с помощью content-box и border-box</h4>
+
+            <p>В этом примере показано, как разные значения box-sizing влияют на отображаемый размер двух одинаковых
+                элементов.</p>
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                div {<br>
+                width: 160px;<br>
+                height: 80px;<br>
+                padding: 20px;<br>
+                border: 8px solid red;<br>
+                background: yellow;<br>
+                }<br>
+                <br>
+                .content-box {<br>
+                box-sizing: content-box;<br>
+                /* Total width: 160px + (2 * 20px) + (2 * 8px) = 216px<br>
+                Total height: 80px + (2 * 20px) + (2 * 8px) = 136px<br>
+                Content box width: 160px<br>
+                Content box height: 80px */<br>
+                }<br>
+                <br>
+                .border-box {<br>
+                box-sizing: border-box;<br>
+                /* Total width: 160px<br>
+                Total height: 80px<br>
+                Content box width: 160px - (2 * 20px) - (2 * 8px) = 104px<br>
+                Content box height: 80px - (2 * 20px) - (2 * 8px) = 24px */<br>
+                }
+                <br>
+            </div>
+
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                &lt;div class="content-box"&gt;Content box&lt;/div&gt;
+            </div>
+
+            <div id="example_9">
+                Content box
+            </div>
 
 
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                &lt;div class="border-box"&gt;Border box&lt;/div&gt;
+                <br>
+            </div>
+
+            <div id="example_10">
+                Border box
+            </div>
+
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                &lt;h2&gt;box-sizing:border-box;&lt;/h2&gt;<br>
+                &lt;div class="box-inner"&gt;<br>
+                &lt;div class="box"&gt;box1&lt;/div&gt;<br>
+                &lt;div class="box"&gt;box2&lt;/div&gt;<br>
+                &lt;div class="box"&gt;box3&lt;/div&gt;<br>
+                &lt;/div&gt;
+                <br>
+            </div>
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                .box-inner {<br>
+                display: flex;<br>
+                flex-wrap: wrap;<br>
+                }<br>
+                .box {<br>
+                <br>
+                border: 5px solid black;<br>
+                padding: 5px;<br>
+                <span class="span">width: 33%;</span><br>
+                height: 250px;<br>
+                background-color: rgb(187, 70, 70);<br>
+                }
+                <br>
+            </div>
+
+            <h2>box-sizing: border-box;</h2>
+            <div class="box-inner">
+                <div class="box">box1</div>
+                <div class="box">box2</div>
+                <div class="box">box3</div>
+            </div>
+
+            <h2 id="title3">3. Позиционирование на CSS</h2>
 
 
 
@@ -309,8 +491,9 @@
         <!--  -->
         <footer class="footer">
             футер
+            <a href="#top" id="bottom">Вверх</a>
         </footer>
-        <a href="#top" id="bottom">Вверх</a>
+
     </div>
     <br>
     <br>
