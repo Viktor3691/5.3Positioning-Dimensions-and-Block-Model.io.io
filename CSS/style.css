@@ -186,7 +186,7 @@ table td p:last-child {
 
 #example_11 {
   width: 300px;
-  max-width: 200px;
+  height: 200px;
   background-color: rgb(158, 214, 252);
 }
 
