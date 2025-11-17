@@ -155,35 +155,6 @@ caption {
   text-align: right;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #e6e6e6;
-  margin-bottom: 30px;
-}
-
-table td p:last-child {
-  margin-bottom: 0;
-}
-
-.t1 th {
-  color: #5f70b2;
-  text-align: center;
-  border-bottom: 1px dashed #e6e6e6;
-  padding: 10px 15px;
-}
-
-.t1 td {
-  padding: 8px 15px;
-  font-size: 90%;
-  vertical-align: top;
-}
-
-.t1 td:first-child {
-  width: 20%;
-  vertical-align: top;
-}
-
 #example_11 {
   width: 300px;
   height: 200px;
@@ -265,4 +236,195 @@ Content box height: 80px - (2 * 20px) - (2 * 8px) = 24px */
   width: 33%;
   height: 250px;
   background-color: rgb(187, 70, 70);
+}
+
+.box1 {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  margin: 10px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.static {
+  position: static;
+  top: 50px; /* Не сработает */
+  left: 50px; /* Не сработает */
+}
+
+#example_12 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: 5px solid rgb(80, 233, 238);
+}
+
+.relative {
+  position: relative;
+  top: 20px;
+  left: 30px;
+}
+#example_13 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: 5px solid rgb(80, 233, 238);
+}
+
+.container1 {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: lightgray;
+}
+
+.absolute {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+#example_14 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: 5px solid rgb(80, 233, 238);
+}
+
+.fixed {
+  position: fixed;
+  bottom: 100px;
+  left: 100px;
+  background-color: lightcoral;
+}
+
+.box3 {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  margin: 10px;
+  text-align: center;
+  line-height: 20px;
+}
+.content1 {
+  height: 200px; /* Для создания прокрутки */
+}
+
+#example_15 {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 5px solid rgb(80, 233, 238);
+}
+
+/* Липкий контейнер */
+.table-wrapper {
+  /* ограничиваем высоту, чтобы был вертикальный скролл */
+  max-height: 300px;
+  /* включаем прокрутку (и вертикаль, и горизонталь, если нужно) */
+  overflow: auto;
+}
+table {
+  /* убираем лишние зазоры между ячейками */
+  border-spacing: 0;
+  /* чтобы при узком контейнере был горизонтальный скролл */
+  min-width: 600px;
+}
+/* Заголовки колонок */
+thead th {
+  position: sticky;
+  /* Прилипаем к верху контейнера */
+  top: 0;
+}
+/* Первая колонка — липнем слева при горизонтальном скролле */
+thead th:first-child,
+tbody td:first-child {
+  position: sticky;
+  /* Цепляемся за левую границу контейнера */
+  left: 0;
+}
+th,
+td {
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: lightgray;
+  width: 100px;
+  height: 50px;
+}
+
+.parent {
+  background-color: #5faff5;
+  padding: 10px;
+  height: 30vh;
+}
+.child {
+  padding: 10px;
+}
+.child-one {
+  background-color: #3ed277;
+}
+.child-two {
+  background-color: #dc9f3c;
+}
+.child-three {
+  background-color: #b14aaa;
+}
+
+.parent1 {
+  background-color: #5faff5;
+  padding: 5px;
+  position: relative;
+  height: 50vh;
+}
+.child1 {
+  padding: 5px;
+  /*
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  */
+}
+@supports (position: sticky) {
+  .child1 {
+    position: sticky;
+    top: 0;
+  }
+}
+.child1-one {
+  background-color: #3ed277;
+}
+.child1-two {
+  background-color: #dc9f3c;
+}
+.child1-three {
+  background-color: #b14aaa;
+}
+
+.header2 {
+  height: 150px;
+  background-color: #384874;
+}
+.menu2 {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.menu2 ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  background-color: #be7c7c;
+  padding: 15px;
+}
+.menu2 li {
+  background-color: #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+.menu2 li:last-child {
+  margin-right: 0;
+}
+.content2 {
+  padding-top: 80px;
 }

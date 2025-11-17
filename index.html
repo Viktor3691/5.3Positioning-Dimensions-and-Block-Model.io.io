@@ -155,7 +155,8 @@
 
             <div id="example_1">width: 300px;<br>
                 max-width: 200px;<br>
-                background-color: rgb(158, 214, 252);</div>
+                background-color: rgb(158, 214, 252);
+            </div>
             <br>
             <div class="ramka"> CSS
                 <br>
@@ -463,25 +464,751 @@
 
             <h2 id="title3">3. Позиционирование на CSS</h2>
 
+            <p>Позиционирование это способ управления расположением элементов на веб-странице. С помощью свойства
+                <span>position</span> мы можем
+                точно указать, где должен находиться тот или иной элемент, как он должен взаимодействовать с другими
+                элементами и как
+                вести себя при прокрутке страницы. <br>
+                <br>
+                Свойство <span>position </span>может принимать следующие значения:
+            </p>
+            <ul>
+                <li><span>static</span> - значение по умолчанию. Элементы располагаются в порядке, в котором они
+                    встречаются в коде.</li>
+                <li><span>relative</span> - элемент позиционируется относительно своего обычного положения.</li>
+                <li><span>absolute</span> - элемент позиционируется относительно ближайшего позиционированного
+                    родительского элемента.</li>
+                <li><span>fixed</span> - элемент позиционируется относительно viewport.</li>
+                <li><span>sticky</span> - элемент позиционируется относительно своего обычного положения, но при
+                    прокрутке страницы он остается на своем месте.</li>
+                <li><span>inherit</span> - наследует значение свойства от родительского элемента.</li>
+                <li><span>initial</span> - устанавливает значение свойства в значение по умолчанию.</li>
+            </ul>
+
+            <h3>1. position: static</h3>
+
+            <p>Это значение по умолчанию для всех элементов. Элементы с <span>position: static</span> располагаются в
+                обычном потоке документа, <span class="span">то
+                    есть так, как они указаны в HTML-коде.</span> <strong>Свойства top, right, bottom, left и z-index не
+                    влияют на элементы с position:
+                    static.</strong></p>
+
+            <h4>Пример:</h4>
+
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                &lt;div class="box static"&gt;Static&lt;/div&gt;<br>
+                &lt;div class="box"&gt;Обычный блок&lt;/div&gt;
+                <br>
+            </div>
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                .box1 {<br>
+                width: 100px;<br>
+                height: 100px;<br>
+                background-color: lightblue;<br>
+                margin: 10px;<br>
+                text-align: center;<br>
+                line-height: 20px;<br>
+                }<br>
+                <br>
+                .static {<br>
+                position: static;<br>
+                top: 50px; /* Не сработает */<br>
+                left: 50px; /* Не сработает */<br>
+                }
+                <br>
+            </div>
+
+            <div id="example_12">
+                <div class="box1">Обычный блок</div>
+
+                <div class="box1 static">Static</div>
+                <br>
+            </div>
+
+            <p>В этом примере блок с классом <span>static</span> не изменит своего положения, несмотря на указанные
+                свойства <span>top и left.</span></p>
+
+            <h3>2. position: relative</h3>
+
+            <p>Элемент с <span>position: relative</span> также остается в потоке документа, но теперь мы можем управлять
+                его положением с помощью
+                свойств <span>top, right, bottom и left. </span>Эти свойства смещают элемент относительно его исходного
+                положения.</p>
+
+            <h4>Пример:</h4>
+
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                &lt;div class="box1 relative"&gt;Relative&lt;/div&gt; <br>
+                <br>
+                &lt;div class="box1"&gt;Обычный блок&lt;/div&gt;
+                <br>
+            </div>
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                .relative {<br>
+                position: relative;<br>
+                top: 20px;<br>
+                left: 30px;<br>
+                }
+                <br>
+            </div>
+
+            <div id="example_13">
+                <div class="box1">Обычный блок</div>
+
+                <div class="box1 relative">Relative</div>
+                <br>
+            </div>
+
+            <p>Здесь блок с классом <span>relative</span> сместится на 20 пикселей вниз и на 30 пикселей вправо
+                относительно своего исходного
+                положения. Обратите внимание, что другие элементы не «замечают» это смещение и остаются на своих местах.
+            </p>
+
+            <h3>3. position: absolute</h3>
+
+            <p>Элемент с <span>position: absolute</span> вырывается из обычного потока документа и позиционируется
+                относительно ближайшего
+                родительского элемента с <br>
+                position: relative <br>
+                position: absolute<br>
+                position: fixed <br>
+                position: sticky. <br>
+                <span class="span">Если такого родителя нет, элемент позиционируется относительно
+                    &lt;body&gt;.</span>
+                <br>
+                Свойства <span> top, right, bottom и left</span> задают расстояние от краев <strong>родительского
+                    элемента.</strong>
+            </p>
+
+            <h4>Пример:</h4>
+
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                &lt;div class="container1"&gt;<br>
+                &emsp;&lt;div class="box1 absolute"&gt;Absolute&lt;/div&gt;<br>
+                &lt;/div&gt;<br>
+                <br>
+                &lt;div class="box1"&gt;Обычный блок&lt;/div&gt;<br>
+                <br>
+            </div>
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                .container1 {<br>
+                position: relative;<br>
+                width: 300px;<br>
+                height: 200px;<br>
+                background-color: lightgray;<br>
+                }<br>
+                <br>
+                .absolute {<br>
+                position: absolute;<br>
+                top: 50px;<br>
+                left: 100px;<br>
+                }
+                <br>
+            </div>
+
+            <div id="example_14">
+                <div class="box1">Обычный блок</div>
+
+                <div class="container1">
+                    <div class="box1 absolute">Absolute</div>
+                </div>
+            </div>
+
+            <p>В этом примере <span>блок с классом absolute</span> позиционируется <span>относительно контейнера
+                    .container,</span> так как у него задано position: relative. Блок сместится на 50 пикселей вниз и на
+                100 пикселей вправо относительно контейнера.</p>
+
+            <h3>4. position: fixed</h3>
+
+            <p>Элемент с <span>position: fixed </span>также вырывается из потока документа, но позиционируется
+                относительно окна браузера. <br><br>
+                Это значит, что такой <span class="span">элемент будет оставаться на одном и том же месте, даже
+                    если страница прокручивается.</span></p>
+
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                &lt;div class="box1 fixed"&gt;Fixed&lt;/div&gt;<br>
+
+            </div>
+
+            <br>
+
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                .fixed {<br>
+                position: fixed;<br>
+                bottom: 100px; <br>
+                left: 100px;<br>
+                background-color: lightcoral;<br>
+                }<br>
+                <br>
+            </div>
+
+
+            <div class="box3 fixed">
+                4. position: fixed
+            </div>
+
+            <h3>5. position: sticky</h3>
+
+            <p>Элемент с <span>position: sticky</span> располагается в соответствии с обычным порядком следования
+                элементов в документе, а затем
+                смещается относительно
+                своего ближайшего предка с прокруткой и содержащего блока (ближайшего предка на уровне блока),
+                <strong>включая
+                    элементы,
+                    связанные с таблицами,</strong> в зависимости от значений top, right, bottom и left. Смещение не
+                влияет на
+                положение других элементов.
+            </p>
+
+            <h4>Прилипающие заголовки таблиц</h4>
+
+            <p>Один из вопросов на собеседованиях: «Как сделать так, чтобы заголовок таблицы всегда был виден при
+                прокрутке вниз и
+                направо?».
+
+                Логика такая: здесь мы специально ставим контейнеру с таблицей overflow: auto, чтобы прокрутка была не у
+                всей страницы,
+                а только у таблицы. Тогда sticky будет цепляться за границы именно этого контейнера: шапка прилипнет к
+                его верху и
+                поедет вниз только тогда, когда таблица полностью прокрутится.</p>
+
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                &lt;!-- Обёртка со скроллом — это наш липкий контейнер --&gt;<br>
+                &lt;div class="table-wrapper"&gt;<br>
+                &lt;!-- Внутрь кладём таблицу --&gt;<br>
+                &lt;table&gt;<br>
+                &lt;head&gt;<br>
+                &lt;tr&gt;<br>
+                &lt;!-- Первая ячейка пустая — это угол --&gt;<br>
+                &lt;th&gt;&lt;/th&gt;<br>
+                &lt;!-- Остальные th будут липнуть только сверху --&gt;<br>
+                &lt;th&gt;Колонка 1&lt;/th&gt;<br>
+                &lt;th&gt;Колонка 2&lt;/th&gt;<br>
+                &lt;th&gt;Колонка 3&lt;/th&gt;<br>
+                &lt;th&gt;Колонка 4&lt;/th&gt;<br>
+                &lt;th&gt;Колонка 5&lt;/th&gt;<br>
+                &lt;/tr&gt;<br>
+                &lt;/thead&gt;<br>
+                &lt;tbody&gt;<br>
+                &lt;!-- Данные неважны, нужны только строки для скролла --&gt;<br>
+                &lt;tr&gt;<br>
+                &lt;td&gt;&lt;/td&gt;<br>
+                &lt;td&gt;&lt;/td&gt;<br>
+                &lt;td&gt;&lt;/td&gt;<br>
+                &lt;td&gt;&lt;/td&gt;<br>
+                &lt;td&gt;&lt;/td&gt;<br>
+                &lt;td&gt;&lt;/td&gt;<br>
+                &lt;/tr&gt;<br>
+                &lt;!-- Дальше просто копипастим строки, пока не появится скролл --&gt;<br>
+                &lt;/tbody&gt;<br>
+                &lt;/table&gt;<br>
+                &lt;/div&gt;<br>
+                <br>
+            </div>
+
+            <p>Дальше стилизуем эту разметку:</p>
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                <!--  -->
+                /* Липкий контейнер */<br>
+                .table-wrapper {<br>
+                /* ограничиваем высоту, чтобы был вертикальный скролл */<br>
+                max-height: 300px;<br>
+                /* включаем прокрутку (и вертикаль, и горизонталь, если нужно) */<br>
+                overflow: auto;<br>
+                }<br>
+                table {<br>
+                /* убираем лишние зазоры между ячейками */<br>
+                border-spacing: 0;<br>
+                /* чтобы при узком контейнере был горизонтальный скролл */<br>
+                min-width: 600px;<br>
+                }<br>
+                /* Заголовки колонок */<br>
+                thead th {<br>
+                position: sticky;<br>
+                /* Прилипаем к верху контейнера */<br>
+                top: 0;<br>
+                }<br>
+                /* Первая колонка — липнем слева при горизонтальном скролле */<br>
+                thead th:first-child,<br>
+                tbody td:first-child {<br>
+                position: sticky;<br>
+                /* Цепляемся за левую границу контейнера */<br>
+                left: 0;<br>
+                }
+                <!--  -->
+                <br>
+            </div>
+
+            <!-- Обёртка со скроллом — это наш липкий контейнер -->
+            <div class="table-wrapper">
+                <!-- Внутрь кладём таблицу  -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Колонка 1</th>
+                            <th>Колонка 2</th>
+                            <th>Колонка 3</th>
+                            <th>Колонка 4</th>
+                            <th>Колонка 5</th>
+                            <th>Колонка 6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Данные неважны, нужны только строки для скролла -->
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+
+                        <!-- Дальше просто копипастим строки, пока не появится скролл -->
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Курс Stepik</h2>
+
+            <p>
+            <h4>Пример 1</h4>
+            </p>
+
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                <!--  -->
+                &lt;div class="parent"&gt;<br>
+                Parent<br>
+                &lt;div class="child-one child"&gt;One&lt;/div&gt;<br>
+                &lt;div class="child-two child"&gt;Two&lt;/div&gt;<br>
+                &lt;div class="child-three child"&gt;Three&lt;/div&gt;<br>
+                &lt;/div&gt;
+                <!--  -->
+                <br>
+            </div>
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                <!--  -->
+                .parent {<br>
+                background-color: #5faff5;<br>
+                padding: 10px;<br>
+                height: 30vh;<br>
+                }<br>
+                .child {<br>
+                padding: 10px;<br>
+                }<br>
+                .child-one {<br>
+                background-color: #3ed277;<br>
+                }<br>
+                .child-two {<br>
+                background-color: #dc9f3c;<br>
+                }<br>
+                .child-three {<br>
+                background-color: #b14aaa;<br>
+                }
+                <!--  -->
+                <br>
+            </div>
+
+            <div class="parent">
+                Parent
+                <div class="child-one child">One</div>
+                <div class="child-two child">Two</div>
+                <div class="child-three child">Three</div>
+            </div>
+
+            <p>
+            <h4>Пример 2</h4>
+            </p>
+
+
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                <!--  -->
+                &lt;div class="parent1"&gt;<br>
+                Parent
+                &lt;div&gt;<br>
+                &emsp;&lt;div class="child1-one child"&gt;<br>One&lt;/div&gt;<br>
+                &emsp;&lt;ul&gt;<br>
+                &emsp;&emsp;&lt;li&gt;Lorem, ipsum dolor.&lt;/li&gt;<br>
+                &emsp;&emsp;&lt;li&gt;Lorem, ipsum dolor.&lt;/li&gt;<br>
+                &emsp;&emsp;&lt;li&gt;Lorem, ipsum dolor.&lt;/li&gt;<br>
+                &emsp;&lt;/ul&gt;<br>
+                &lt;/div&gt;<br>
+                &lt;div&gt;<br>
+                &emsp;&lt;div class="child1-two child"&gt;<br>Two&lt;/div&gt;<br>
+                &emsp;&lt;ul&gt;<br>
+                &emsp;&emsp;&lt;li&gt;Lorem, ipsum dolor.&lt;/li&gt;<br>
+                &emsp;&emsp;&lt;li&gt;Lorem, ipsum dolor.&lt;/li&gt;<br>
+                &emsp;&emsp;&lt;li&gt;Lorem, ipsum dolor.&lt;/li&gt;<br>
+                &emsp;&lt;/ul&gt;<br>
+                &lt;/div&gt;<br>
+                &lt;div&gt;<br>
+                &emsp;&lt;div class="child1-three child"&gt;<br>Three&lt;/div&gt;<br>
+                &emsp;&lt;ul&gt;<br>
+                &emsp;&emsp;&lt;li&gt;Lorem, ipsum dolor.&lt;/li&gt;<br>
+                &emsp;&emsp;&lt;li&gt;Lorem, ipsum dolor.&lt;/li&gt;<br>
+                &emsp;&emsp;&lt;li&gt;Lorem, ipsum dolor.&lt;/li&gt;<br>
+                &emsp;&lt;/ul&gt;<br>
+                &lt;/div&gt;<br>
+                &lt;/div&gt;<br>
+                <!--  -->
+                <br>
+            </div>
+
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                <!--  -->
+                .parent1 {<br>
+                background-color: #5faff5;<br>
+                padding: 5px;<br>
+                position: relative;<br>
+                height: 50vh;<br>
+                }<br>
+                .child1 {<br>
+                padding: 5px;<br>
+                /*<br>
+                position: -webkit-sticky;<br>
+                position: -moz-sticky;<br>
+                position: -ms-sticky;<br>
+                position: -o-sticky;<br>
+                position: sticky;<br>
+                */<br>
+                }<br>
+                @supports (position: sticky) {<br>
+                .child1 {<br>
+                position: sticky;<br>
+                top: 0;<br>
+                }<br>
+                }<br>
+                .child1-one {<br>
+                background-color: #3ed277;<br>
+                }<br>
+                .child1-two {<br>
+                background-color: #dc9f3c;<br>
+                }<br>
+                .child1-three {<br>
+                background-color: #b14aaa;<br>
+                }
+
+                <!--  -->
+                <br>
+            </div>
 
 
 
 
+            <div class="parent1">
+                Parent <div>
+                    <div class="child-one child">
+                        One</div>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="child-two child">
+                        Two</div>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="child-three child">
+                        Three</div>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.</li>
+                    </ul>
+                </div>
+            </div>
 
+            <h4>Пример 3</h4>
 
+            <div class="ramka"> HTML
+                <br>
+                <br>
+                <!--  -->
+                &lt;div class="container1"&gt;<br>
+                &lt;header class="header1"&gt;<br>
+                &lt;h1&gt;Head Title&lt;/h1&gt;<br>
+                &lt;/header&gt;<br>
+                &emsp;&lt;div class="menu1&gt;<br>
+                &emsp;&emsp;&lt;ul&gt;<br>
+                &emsp;&emsp;&emsp;&lt;li&gt;Home&lt;/li&gt;<br>
+                &emsp;&emsp;&emsp;&lt;li&gt;About&lt;/li&gt;<br>
+                &emsp;&emsp;&emsp;&lt;li&gt;Contacts&lt;/li&gt;<br>
+                &emsp;&emsp;&lt;/ul&gt;<br>
+                &emsp;&lt;/div&gt;<br>
+                &emsp;&lt;div class="content1"&gt;<br>
+                &emsp;&emsp;&lt;p&gt;<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus
+                nesciunt, eaque dolores
+                delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                dolorem ipsa. Iusto
+                veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui culpa ipsa.
+                Accusamus
+                cupiditate perferendis dolor repudiandae iure facilis quae quaerat?<br>
+                &emsp;&emsp;&lt;/p&gt;<br>
+                &emsp;&emsp;&lt;p&gt;<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus
+                nesciunt, eaque dolores
+                delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                dolorem ipsa. Iusto
+                veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui culpa ipsa.
+                Accusamus
+                cupiditate perferendis dolor repudiandae iure facilis quae quaerat?<br>
+                &emsp;&emsp;&lt;/p&gt;<br>
+                &emsp;&emsp;&lt;p&gt;<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus
+                nesciunt, eaque dolores
+                delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                dolorem ipsa. Iusto
+                veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui culpa ipsa.
+                Accusamus
+                cupiditate perferendis dolor repudiandae iure facilis quae quaerat?<br>
+                &emsp;&emsp;&lt;/p&gt;<br>
+                &emsp;&emsp;&lt;p&gt;<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus
+                nesciunt, eaque dolores
+                delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                dolorem ipsa. Iusto
+                veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui culpa ipsa.
+                Accusamus
+                cupiditate perferendis dolor repudiandae iure facilis quae quaerat?<br>
+                &emsp;&emsp;&lt;/p&gt;<br>
+                &emsp;&emsp;&lt;p&gt;<br>
+                &emsp;&emsp;&emsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus
+                nesciunt, eaque dolores
+                delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                dolorem ipsa. Iusto
+                veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui culpa ipsa.
+                Accusamus
+                cupiditate perferendis dolor repudiandae iure facilis quae quaerat?<br>
+                &emsp;&emsp;&lt;/p&gt;<br>
+                &emsp;&lt;/div&gt;<br>
+                &lt;/div&gt;<br>
+                <!--  -->
+                <br>
+            </div>
 
+            <div class="ramka"> CSS
+                <br>
+                <br>
+                <!--  -->
+                .header2 {<br>
+                height: 150px;<br>
+                background-color: #384874;<br>
+                }<br>
+                .menu2 {<br>
+                position: fixed;<br>
+                right: 0;<br>
+                bottom: 0;<br>
+                left: 0;<br>
+                }<br>
+                .menu2 ul {<br>
+                display: flex;<br>
+                list-style: none;<br>
+                justify-content: center;<br>
+                background-color: #be7c7c;<br>
+                padding: 15px;<br>
+                }<br>
+                .menu2 li {<br>
+                background-color: #ddd;<br>
+                padding: 10px;<br>
+                border-radius: 10px;<br>
+                margin-right: 15px;<br>
+                }<br>
+                .menu2 li:last-child {<br>
+                margin-right: 0;<br>
+                }<br>
+                .content2{<br>
+                padding-top: 80px;<br>
+                }
+                <!--  -->
+                <br>
+            </div>
 
+            <div class="container2">
+                <header class="header2">
+                    <h1>Head Title</h1>
+                </header>
 
+                <div class="menu2">
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Contacts</li>
+                    </ul>
+                </div>
 
+                <div class="content2">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus nesciunt,
+                        eaque
+                        dolores delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                        dolorem
+                        ipsa. Iusto veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui
+                        culpa ipsa.
+                        Accusamus cupiditate perferendis dolor repudiandae iure facilis quae quaerat?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus nesciunt,
+                        eaque
+                        dolores delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                        dolorem
+                        ipsa. Iusto veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui
+                        culpa ipsa.
+                        Accusamus cupiditate perferendis dolor repudiandae iure facilis quae quaerat?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus nesciunt,
+                        eaque
+                        dolores delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                        dolorem
+                        ipsa. Iusto veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui
+                        culpa ipsa.
+                        Accusamus cupiditate perferendis dolor repudiandae iure facilis quae quaerat?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus nesciunt,
+                        eaque
+                        dolores delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                        dolorem
+                        ipsa. Iusto veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui
+                        culpa ipsa.
+                        Accusamus cupiditate perferendis dolor repudiandae iure facilis quae quaerat?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique totam cumque natus
+                        nesciunt, eaque
+                        dolores delectus placeat quibusdam necessitatibus voluptate praesentium accusantium est et velit
+                        dolorem
+                        ipsa. Iusto veniam fuga ullam dolores inventore incidunt labore? Animi cupiditate earum qui
+                        culpa ipsa.
+                        Accusamus cupiditate perferendis dolor repudiandae iure facilis quae quaerat?
+                    </p>
 
-
-
-
-
-
-
-
-
+                </div>
+            </div>
 
 
 
