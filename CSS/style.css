@@ -66,6 +66,7 @@
   grid-column: 1 / 4;
   grid-row: 3/ 4;
   top: 40px;
+  background: #d9e6f3;
 }
 h1,
 h2,
@@ -290,7 +291,7 @@ Content box height: 80px - (2 * 20px) - (2 * 8px) = 24px */
 
 .fixed {
   position: fixed;
-  bottom: 100px;
+  bottom: 200px;
   left: 100px;
   background-color: lightcoral;
 }
@@ -344,7 +345,7 @@ td {
   padding: 10px;
   border: 1px solid black;
   text-align: center;
-  background-color: lightgray;
+  background-color: rgb(228, 237, 238);
   width: 100px;
   height: 50px;
 }
