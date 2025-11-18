@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 .body {
-  inline-size: 1200px;
+  inline-size: 100%;
   margin: 0 auto;
 }
 .logo {
@@ -20,11 +20,11 @@
 .grid {
   /* Делаем грид-контейнером */
   display: grid;
-
+  width: 100%;
   grid-template-columns: 1fr 3fr;
   margin: 0 avto;
-  border-inline-end: 50px solid #d9e6f3;
-  border-inline-start: 50px solid #d9e6f3;
+  /* border-inline-end: 50px solid #d9e6f3;
+  border-inline-start: 50px solid #d9e6f3; */
 }
 
 .grid > div {
